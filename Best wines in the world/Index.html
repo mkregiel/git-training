@@ -13,16 +13,35 @@
                 margin: 0px auto;
             }
         </style>
+        <script>
+            function addNewWineProposition() {
+                var newWineTextBox = document.getElementById('newWineTextBox');
+                var wineName = newWineTextBox.value;
+
+                var newListElement = createNewElementList(wineName);
+
+                var winesList = document.getElementById('winesList');
+                winesList.appendChild(newListElement);
+            };
+
+            function createNewElementList(wineName) {
+                var liElement = document.createElement('li');
+                liElement.innerText = wineName;
+                return liElement;
+            };
+        </script>
     </head>
     <body>
         <h1 class="bolded centered">This is a page about the best wines in the world</h1>
         <hr />
         <p>Here are mine proposals:</p>
-        <ul>
+        <ul id="winesList">
             <li>Portada</li>
             <li>Ice wine</li>
         </ul>
         <hr />
         <p>Feel free to add your own best wine into the list.</p>
+        <input type="text" id="newWineTextBox" />
+        <input type="button" value="Add this wine to the list" onClick="addNewWineProposition();" />
     </body>
 </html>
